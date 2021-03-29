@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <script>
+     function lotto(){
+       var NumA = 0; // 設A區的亂數的變數
+       var NumB = 0; // 設B區的亂數的變數 
+       var Num=[]; // 存A區6個數字的陣列變數
+       for(var i=0;i<6;i++){
+         NumA = Math.floor(Math.random()*38)+1; //產生A區的數字
+         for(var j=0;j<Num.length;j++){
+           if(Num[j]==NumA){ //判斷產生的數字有沒有跟存進陣列的數字重複
+             Num.splice(j,1); //如果有就刪除數字
+             i=i-1; //重新產生新的數字
+           }
+         }
+         Num.push(NumA);//把產生的數字存進陣列裡
+       }
+        document.write('A區號碼為：' + Num +'<br>'); //輸出A區的結果
+        
+        NumB=Math.floor(Math.random()*8)+1;
+        document.write('B區號碼為：' + NumB); //輸出B區的結果
+     }
+     lotto();
+   </script>
+</body>
+</html>
